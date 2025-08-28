@@ -15,3 +15,7 @@ lint-fix:
 .PHONY: build
 build:
 	go build -o ${OUTPUT} ${GO_FILE}
+
+.PHONY: test
+test:
+	go test -count=1 -v ./...
