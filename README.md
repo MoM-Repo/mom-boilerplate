@@ -20,7 +20,7 @@
 ### Пример использования шаблона
 Ниже приведен пример набора команд для создания нового проекта test_project.
 
-Предполагается, что уже создан пустой репозиторий github.com/yourName/test_project в GitLab.
+Предполагается, что уже создан пустой репозиторий github.com/yourName/test_project в GitHub.
 
 В итоге, будет создан проект.
 
@@ -43,7 +43,7 @@ go mod tidy
 rm -rf .git
 git init
 git add .
-git commit -m "chore: initial commit from template"
+git commit -m "Initial commit from template"
 ```
 5. Добавьте ваш удаленный репозиторий
 ```bash
