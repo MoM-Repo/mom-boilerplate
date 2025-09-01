@@ -71,7 +71,6 @@ linters-settings:
     sections:
       - standard
       - default
-      - prefix(shipment-operator-workspace)
       - blank
       - dot
     skip-generated: true
@@ -101,7 +100,6 @@ linters-settings:
         allow:
           - $gostd
           - $gomodname
-          - git.vseinstrumenti.net
           - github.com
         deny:
           - pkg: "emperror.dev/errors"
