@@ -64,7 +64,7 @@ deps: ## Загрузить зависимости
 .PHONY: mod-check
 mod-check: ## Проверка актуальности go.mod/go.sum
 	go mod tidy
-	@git diff --exit-code -- go.mod go.sum || (echo "go.mod/go.sum не синхронизированы. Запустите 'go mod tidy'" && exit 1)
+	@FILES="go.mod"; [ -f go.sum ] && FILES="$$FILES go.sum"; git diff --exit-code -- $$FILES || (echo "go.mod/go.sum не синхронизированы. Запустите 'go mod tidy'" && exit 1)
 
 # =============================================================================
 # CI
@@ -73,7 +73,7 @@ mod-check: ## Проверка актуальности go.mod/go.sum
 ci: ## Запустить все CI проверки
 	@echo "=== Mod Check ==="
 	go mod tidy
-	@git diff --exit-code -- go.mod go.sum || (echo "go.mod/go.sum не синхронизированы" && exit 1)
+	@FILES="go.mod"; [ -f go.sum ] && FILES="$$FILES go.sum"; git diff --exit-code -- $$FILES || (echo "go.mod/go.sum не синхронизированы" && exit 1)
 	@echo ""
 	@echo "=== Build ==="
 	@mkdir -p ./bin

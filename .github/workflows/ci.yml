@@ -75,4 +75,6 @@ jobs:
       - name: Check go.mod/go.sum
         run: |
           go mod tidy
-          git diff --exit-code go.mod go.sum || (echo "go.mod/go.sum не синхронизированы. Запустите 'go mod tidy'" && exit 1)
+          FILES="go.mod"
+          [ -f go.sum ] && FILES="$FILES go.sum"
+          git diff --exit-code $FILES || (echo "go.mod/go.sum не синхронизированы. Запустите 'go mod tidy'" && exit 1)
